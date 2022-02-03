@@ -21,11 +21,10 @@ public void draw() {
   rotateZ(rotZ);
   stroke(55,55,55);
   noFill();
-  recurse(-50, -100, 150, 1500);
+  recurse(-550, -510, 150, 1500);
   popMatrix();
   rotZ+=0.01;
 
   System.out.println(y);
 }
-
 
