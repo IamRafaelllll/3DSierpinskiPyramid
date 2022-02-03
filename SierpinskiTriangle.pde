@@ -24,7 +24,5 @@ public void draw() {
   recurse(-550, -510, 150, 1500);
   popMatrix();
   rotZ+=0.01;
-
-  System.out.println(y);
 }
 
