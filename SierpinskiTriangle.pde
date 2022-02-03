@@ -1,61 +1,31 @@
-float x, y, z, rotX, rotY, rotZ;
-int mouseClicks = 0;
-void setup() {
+public float x, y, z, rotX, rotY, rotZ;
+public Boolean Bounce1=false;
+public Boolean wPressed, sPressed;
+public int bounceLevel=700;
+ public void setup() {
   size(750, 750, P3D);
   x = width/2;
-  y = width/2+500;
+  y = width/2+700;
   z = -2500;
-  rotX = PI/3;
+  rotX = PI/2;
   rotY = 0;
-  rotZ = PI/4;
+  rotZ = 0;
 }
 
-void draw() {
-  background(255);
+public void draw() {
+  background(0);
   pushMatrix();
   translate(x, y, z);
   rotateX(rotX);
   rotateY(rotY);
   rotateZ(rotZ);
-  stroke(0);
+  stroke(55,55,55);
   noFill();
-  recurse(-50, -50, 400, 1000);
+  recurse(-50, -100, 150, 1500);
   popMatrix();
-  rotZ+=0.04;
+  rotZ+=0.01;
 
-  System.out.println(mouseClicks);
+  System.out.println(y);
 }
 
-void recurse(int x, int y, int z, int length) {
-  
- if (length<=100) {
-    Sierpinskify(x, y, z, length);
-  }
-  else{
-  recurse(x, y, z, length/2);
-    recurse(x+length/2, y, z, length/2);
-    recurse(x, y+length/2, z, length/2);
-    recurse(x+length/2, y+length/2, z, length/2);
-    recurse(x+length/4, y+length/4, z+length/2, length/2);
-  }
-  
-}
-void mousePressed(){
-mouseClicks+=1;
-}
-void Sierpinskify(int x, int y, int z, int length) {
-  beginShape();
-  vertex(x, y, z);
-  vertex(x+length,y,z);
-  vertex(x+length/2,y+length/2,z+length);
-  vertex(x+length,y,z);
-  vertex(x+length, y+length,z);
-  vertex(x+length/2, y+length/2, z+length);
-  vertex(x+length, y+length, z);
-  vertex(x, y+length,z);
-  vertex(x+length/2, y+length/2, z+length);
-  vertex(x,y+length,z);
-  vertex(x,y,z);
-  vertex( x+length/2, y+length/2, z+length);
-  endShape();
-}
+
